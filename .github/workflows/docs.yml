@@ -1,0 +1,30 @@
+name: Deploy MkDocs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "students/k3340/Ivanov_Viktor/Lr1/docs/**"
+      - "students/k3340/Ivanov_Viktor/Lr1/mkdocs.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install MkDocs Material
+        run: pip install mkdocs mkdocs-material
+
+      - name: Deploy
+        run: |
+          cd students/k3340/Ivanov_Viktor/Lr1
+          mkdocs gh-deploy --force

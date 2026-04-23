@@ -1,8 +1,6 @@
-from __future__ import annotations
-
 from datetime import date, datetime
 from enum import Enum
-from typing import Optional
+from typing import List, Optional
 
 from sqlalchemy import UniqueConstraint
 from sqlmodel import Field, Relationship, SQLModel
@@ -26,19 +24,19 @@ class User(SQLModel, table=True):
     hashed_password: str
     created_at: datetime = Field(default_factory=datetime.utcnow)
 
-    categories: list["Category"] = Relationship(
+    categories: List["Category"] = Relationship(
         back_populates="user", sa_relationship_kwargs={"cascade": "all, delete"}
     )
-    tags: list["Tag"] = Relationship(
+    tags: List["Tag"] = Relationship(
         back_populates="user", sa_relationship_kwargs={"cascade": "all, delete"}
     )
-    transactions: list["Transaction"] = Relationship(
+    transactions: List["Transaction"] = Relationship(
         back_populates="user", sa_relationship_kwargs={"cascade": "all, delete"}
     )
-    budgets: list["Budget"] = Relationship(
+    budgets: List["Budget"] = Relationship(
         back_populates="user", sa_relationship_kwargs={"cascade": "all, delete"}
     )
-    goals: list["Goal"] = Relationship(
+    goals: List["Goal"] = Relationship(
         back_populates="user", sa_relationship_kwargs={"cascade": "all, delete"}
     )
 
@@ -50,8 +48,8 @@ class Category(SQLModel, table=True):
     user_id: int = Field(foreign_key="user.id")
 
     user: Optional[User] = Relationship(back_populates="categories")
-    transactions: list["Transaction"] = Relationship(back_populates="category")
-    budgets: list["Budget"] = Relationship(back_populates="category")
+    transactions: List["Transaction"] = Relationship(back_populates="category")
+    budgets: List["Budget"] = Relationship(back_populates="category")
 
 
 class Tag(SQLModel, table=True):
@@ -60,7 +58,7 @@ class Tag(SQLModel, table=True):
     user_id: int = Field(foreign_key="user.id")
 
     user: Optional[User] = Relationship(back_populates="tags")
-    transaction_links: list["TransactionTagLink"] = Relationship(
+    transaction_links: List["TransactionTagLink"] = Relationship(
         back_populates="tag", sa_relationship_kwargs={"cascade": "all, delete"}
     )
 
@@ -77,7 +75,7 @@ class Transaction(SQLModel, table=True):
 
     user: Optional[User] = Relationship(back_populates="transactions")
     category: Optional[Category] = Relationship(back_populates="transactions")
-    tag_links: list["TransactionTagLink"] = Relationship(
+    tag_links: List["TransactionTagLink"] = Relationship(
         back_populates="transaction", sa_relationship_kwargs={"cascade": "all, delete-orphan"}
     )
 
