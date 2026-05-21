@@ -4,10 +4,12 @@ on:
   push:
     branches:
       - main
+      - lab2
     paths:
       - "students/k3340/Ivanov_Viktor/Lr1/docs/**"
       - "students/k3340/Ivanov_Viktor/Lr1/mkdocs.yml"
       - "students/k3340/Ivanov_Viktor/Lr2/**"
+      - ".github/workflows/docs.yml"
 
 permissions:
   contents: write
