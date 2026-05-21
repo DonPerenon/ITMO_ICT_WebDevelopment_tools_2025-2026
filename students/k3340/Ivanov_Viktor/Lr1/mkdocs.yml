@@ -46,3 +46,7 @@ nav:
     - Подключение к БД: lr1/database.md
     - Эндпоинты: lr1/endpoints.md
     - Авторизация и JWT: lr1/auth.md
+  - Лабораторная работа 2:
+    - Обзор: lr2/lr2.md
+    - Задача 1: lr2/task1.md
+    - Задача 2: lr2/task2.md
