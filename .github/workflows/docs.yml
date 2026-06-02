@@ -5,10 +5,12 @@ on:
     branches:
       - main
       - lab2
+      - lab3
     paths:
       - "students/k3340/Ivanov_Viktor/Lr1/docs/**"
       - "students/k3340/Ivanov_Viktor/Lr1/mkdocs.yml"
       - "students/k3340/Ivanov_Viktor/Lr2/**"
+      - "students/k3340/Ivanov_Viktor/Lr3/**"
       - ".github/workflows/docs.yml"
 
 permissions:
