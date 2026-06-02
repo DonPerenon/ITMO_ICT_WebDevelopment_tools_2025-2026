@@ -14,7 +14,7 @@ from parser_utils import (
     split_urls,
 )
 
-WORKERS = 3
+WORKERS = 2
 
 
 def parse_and_save(url: str) -> tuple[str, int]:

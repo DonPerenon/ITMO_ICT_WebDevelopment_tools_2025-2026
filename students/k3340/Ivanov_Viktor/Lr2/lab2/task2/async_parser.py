@@ -17,7 +17,7 @@ from parser_utils import (
     split_urls,
 )
 
-WORKERS = 3
+WORKERS = 2
 REQUEST_TIMEOUT = aiohttp.ClientTimeout(total=60)
 
 

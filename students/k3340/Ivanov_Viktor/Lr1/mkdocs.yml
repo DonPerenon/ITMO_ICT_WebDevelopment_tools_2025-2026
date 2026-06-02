@@ -50,3 +50,7 @@ nav:
     - Обзор: lr2/lr2.md
     - Задача 1: lr2/task1.md
     - Задача 2: lr2/task2.md
+  - Лабораторная работа 3:
+    - Обзор: lr3/lr3.md
+    - Задача 1+2 (Docker + HTTP): lr3/task1.md
+    - Задача 3 (Celery + Redis): lr3/task2.md
